@@ -9,7 +9,6 @@ if(document.getElementById('form-transfer')){ // début test #main-form
     document.getElementById('submit').addEventListener("submit", formValidated);
 
 /* ------------------------- écoute des evts drag'n drop ----------------*/
-
 //evt enter
 dropArea.ondragenter = function(e){
     e.preventDefault();
@@ -53,13 +52,17 @@ dropArea.ondrop = function(e){
 function formValidated() {
     var myData = new FormData(form);
     if(droppedFiles){
-        // console.log(droppedFiles);
+        console.log(droppedFiles);
+        for (var i = 0; i < droppedFiles.length; i++) {
+          myData.append("file" + i, droppedFiles[i]);
+        }
     }
     for(var entryForm of myData.entries()){
-        // console.log(entryForm);
+        console.log(entryForm[0], entryForm[1]);
     }
 
-    var normalFiles = document.getElementById('submit').files;
+    var normalFiles = document.getElementById('televerser').files;
+    // console.log(normalFiles);
     var requestObj = new XMLHttpRequest();
 
     requestObj.onreadystatechange = function() {
