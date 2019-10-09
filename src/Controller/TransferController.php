@@ -10,7 +10,7 @@ use ZipArchive;
 use App\Entity\FileTransfer;
 use Doctrine\ORM\EntityManagerInterface;
 
-class BlogController extends AbstractController
+class TransferController extends AbstractController
 {
     /**
      * @Route("/", name="home")
@@ -20,6 +20,19 @@ class BlogController extends AbstractController
     {
         return $this->render('site/index.html.twig', [
             'controller_name' => 'BlogController',
+        ]);
+    }
+
+    /**
+     * @Route("/mail", name="mail")
+     */
+
+    public function mail()
+    {
+        return $this->render('email/sendMail.html.twig', [
+            'nomDestinataire' => 'nomDestinataire',
+            'nomAuteur' => 'nomAuteur',
+            'link' => 'zip/nomFichier.zip'
         ]);
     }
 
@@ -64,9 +77,15 @@ class BlogController extends AbstractController
         $zip->close();
 
 
+        // Delete temporary file
+        foreach($tmpFiles as $tmpFile){
+          unlink($tmpFile);
+        }
+
+
         // Create the message
         $message = (new \Swift_Message())
-          ->setSubject('Fichiers envoyés par ' . $fileTransfer->getNameFrom())
+          ->setSubject('EasyTransfer - Fichiers envoyés par ' . $fileTransfer->getNameFrom())
           ->setFrom([$fileTransfer->getMailFrom()])
           ->setTo([$fileTransfer->getMailTo()])
           ->setBody(
