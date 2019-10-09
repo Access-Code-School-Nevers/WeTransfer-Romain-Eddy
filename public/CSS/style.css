@@ -1,0 +1,118 @@
+/* reset CSS */
+*{
+  margin: 0;
+  padding: 0;
+}
+a{
+  text-decoration: none;
+}
+li{
+  list-style: none;
+}
+p{
+  margin-bottom: 0 !important;
+}
+/* body */
+body{
+  background: url("../images/img_5d9c9ef205b4d.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+/* header */
+header{
+  display: flex !important;
+  justify-content: center;
+}
+h1{
+  margin-top: 35px;
+  color: white;
+  text-shadow: 0px 0px 10px black;
+}
+
+/* container */
+.container{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+/* formulaire */
+form{
+  border: 1px solid #888888;
+  border-radius: 3px;
+  padding: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  box-shadow: 0px 0px 15px #000000;
+  background-color: #fffffff0;
+}
+
+form h2{
+  margin-bottom: 25px;
+}
+.link-image{
+    margin-bottom: 25px;
+    font-size: 2em;
+    color: #6d6d6d;
+    transition: all 1s;
+}
+.link-image:hover{
+  color: #86d8ff;
+}
+.champ{
+  width: 100%;
+  display: flex !important;
+  justify-content: center;
+  flex-direction: column;
+}
+.champ input{
+  height: 45px;
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #d8d6d6;
+  margin-bottom: 15px;
+  box-shadow: 0px 0px 10px #c5c5c5;
+}
+.button-submit{
+  height: 40px;
+    width: 35%;
+    border-radius: 5px;
+    border: 1px solid #adadad;
+    background-color: #00c9ff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 1s;
+}
+.button-submit:hover{
+  background-color: #008efff5;
+}
+.upload-zone-wait{
+  height: 150px;
+  border: 2px dashed #ccc;
+  line-height: 150px;
+  color: #ccc;
+  text-align: center;
+  margin-bottom: 12px;
+  width: 90%;
+  font-size: 1.5em;
+  font-weight: bold;
+  transition: 0.5s all;
+}
+#drop-zone{
+  box-shadow: 0px 0px 8px #a1e8ff;
+}
+
+.upload-zone-wait.over{
+  background-color: #00dcff7d;
+    color: white;
+    border: 2px dashed #545454;
+  box-shadow: 0px 0px 15px #818181;
+}
+#televerser{
+  margin-bottom: 20px;
+}
