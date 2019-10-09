@@ -27,6 +27,18 @@ if(document.getElementById('form-transfer')){ // début test #main-form
         requestObj.open('post', form.action);
         requestObj.send(myData);
 
+        // une fois la requéte fini cette function est éxécuté
+        function loadDoc() {
+
+            requestObj.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("").innerHTML =
+                    this.responseText;
+               }
+            };
+            requestObj.open("GET", "ajax_info.txt", true);
+            requestObj.send();
+        }
 
     } // fin fn formValidated
 
