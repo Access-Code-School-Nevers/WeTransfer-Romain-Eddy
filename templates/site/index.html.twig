@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block body %}
+<form method="POST" action="/sendData" enctype="multipart/form-data">
+  From :<br>
+  <input type="email" name="mail_from"><br>
+  To :<br>
+  <input type="email" name="mail_to"><br>
+
+  Files :<br>
+  <input type="file" name="files[]" multiple>
+
+  <input type="submit" value="Envoyer" />
+</form>
+{% endblock %}
