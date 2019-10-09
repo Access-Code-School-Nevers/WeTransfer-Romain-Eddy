@@ -2,10 +2,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}EasyTransfer{% if page_title is defined %} - {{page_title }} | {% endif %} {% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="shortcut icon" type="image/png" href="/img/favicon.png"/>
     </head>
     <body>
         {% block body %}{% endblock %}

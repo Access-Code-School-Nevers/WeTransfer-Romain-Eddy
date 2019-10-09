@@ -20,6 +20,32 @@ class TransferController extends AbstractController
     {
         return $this->render('site/index.html.twig', [
             'controller_name' => 'BlogController',
+            'page_title' => 'Transfert de fichiers gratuit en ligne'
+        ]);
+    }
+
+    /**
+     * @Route("/conditionsUtilisation", name="cgu")
+     */
+
+    public function cgu()
+    {
+        return $this->render('site/useConditions.html.twig', [
+            'controller_name' => 'BlogController',
+            'page_title' => 'Conditions d\'utilisation'
+        ]);
+    }
+
+    /**
+     * @Route("/mail", name="mail")
+     */
+
+    public function mail()
+    {
+        return $this->render('email/sendMail.html.twig', [
+            'nomDestinataire' => 'nomDestinataire',
+            'nomAuteur' => 'nomAuteur',
+            'link' => 'zip/nomFichier.zip'
         ]);
     }
 
@@ -64,9 +90,15 @@ class TransferController extends AbstractController
         $zip->close();
 
 
+        // Delete temporary file
+        foreach($tmpFiles as $tmpFile){
+          unlink($tmpFile);
+        }
+
+
         // Create the message
         $message = (new \Swift_Message())
-          ->setSubject('Fichiers envoyés par ' . $fileTransfer->getNameFrom())
+          ->setSubject('EasyTransfer - Fichiers envoyés par ' . $fileTransfer->getNameFrom())
           ->setFrom([$fileTransfer->getMailFrom()])
           ->setTo([$fileTransfer->getMailTo()])
           ->setBody(
