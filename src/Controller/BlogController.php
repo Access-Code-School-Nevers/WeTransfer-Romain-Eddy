@@ -73,7 +73,7 @@ class BlogController extends AbstractController
               $this->renderView('email/sendMail.html.twig', [
                   'nomDestinataire' => $fileTransfer->getNameTo(),
                   'nomAuteur' => $fileTransfer->getNameFrom(),
-                  'link' => $fileTransfer->getFileName()
+                  'link' => 'zip/'.$fileTransfer->getFileName().'.zip'
               ]),
               'text/html'
           )
@@ -87,11 +87,11 @@ class BlogController extends AbstractController
           $transferRepo->persist($fileTransfer);
           $transferRepo->flush();
 
-          return true;
+          return new Response(1);
         }
         // Error
         else {
-          return false;
+          return new Response(0);
         }
     }
 }

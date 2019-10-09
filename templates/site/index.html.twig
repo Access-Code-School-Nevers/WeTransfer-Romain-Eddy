@@ -3,19 +3,32 @@
 {% block title %}Hello BlogController!{% endblock %}
 
 {% block body %}
-<form method="POST" action="/sendData" enctype="multipart/form-data">
-  Name From :<br>
-  <input type="text" name="name_from"><br>
-  From :<br>
-  <input type="email" name="mail_from"><br>
-  Name To :<br>
-  <input type="text" name="name_to"><br>
-  To :<br>
-  <input type="email" name="mail_to"><br>
+<section class="container">
+  <form id="form-transfer" method="POST" action="/sendData" enctype="multipart/form-data">
+    <h2>Ajouter un fichier à Transférer</h2>
 
-  Files :<br>
-  <input type="file" name="files[]" multiple>
+    <p class="champ">
+      Nom du destinataire :<br>
+      <input type="text" name="name_from" placeholder=" Nom" required><br>
+    </p>
+    <p class="champ">
+      Adresse du destinataire :<br>
+      <input type="email" name="mail_from" placeholder=" E-mail" required><br>
+    </p>
+    <p class="champ">
+      Votre nom :<br>
+      <input type="text" name="name_to" placeholder=" Nom" required><br>
+    </p>
+    <p class="champ">
+      Votre adresse e-mail :<br>
+      <input type="email" name="mail_to" placeholder=" E-mail" required><br>
+    </p>
 
-  <input type="submit" value="Envoyer" />
-</form>
+    Téléverser un fichier:<br>
+    <div id="drop-zone" class="upload-zone-wait">Glisser/déposer</div>
+    <div id="drop-show"></div>
+    <input id="televerser" type="file" name="files[]" multiple>
+    <input  id="submit" class="button-submit" type="submit" name="submit" value="Envoyer">
+  </form>
+</section>
 {% endblock %}
