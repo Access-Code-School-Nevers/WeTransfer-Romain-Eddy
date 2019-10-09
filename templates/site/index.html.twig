@@ -24,11 +24,13 @@
       <input type="email" name="mail_to" placeholder=" E-mail" required><br>
     </p>
 
-    Téléverser un fichier:<br>
+    <p style="font-weight: bold;color: #5a5a5a;">Téléverser un fichier:</p> <br>
     <div id="drop-zone" class="upload-zone-wait">Glisser/déposer</div>
     <div id="drop-show"></div>
     <input id="televerser" type="file" name="files[]" multiple>
-    <input  id="submit" class="button-submit" type="submit" name="submit" value="Envoyer" onClick="formValidated()">
+  <input  id="submit" class="button-submit" type="submit" name="submit" value="Envoyer" onClick="formValidated()">
+    <div id="message-transfer">
+    </div>
   </form>
 </section>
 {% endblock %}

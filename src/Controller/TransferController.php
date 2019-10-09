@@ -98,13 +98,13 @@ class TransferController extends AbstractController
           )
           ;
 
-          $mailer->send($message);
+          // $mailer->send($message);
 
 
           // Insert into DB
-          $transferRepo = $this->getDoctrine()->getManager();
-          $transferRepo->persist($fileTransfer);
-          $transferRepo->flush();
+          // $transferRepo = $this->getDoctrine()->getManager();
+          // $transferRepo->persist($fileTransfer);
+          // $transferRepo->flush();
 
           return new Response(1);
         }

@@ -8,7 +8,6 @@ if(document.getElementById('form-transfer')){ // début test #main-form
     var droppedFiles;
     document.getElementById('submit').addEventListener("submit", formValidated);
 
-
 /* ------------------------- écoute des evts drag'n drop ----------------*/
 
 //evt enter
@@ -61,11 +60,16 @@ function formValidated() {
     }
 
     var normalFiles = document.getElementById('submit').files;
-    // console.log(normalFiles);
-
     var requestObj = new XMLHttpRequest();
+
+    requestObj.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("message-transfer").innerHTML = '<p style="margin-top: 5px;">Transfert réussi!</p><i class="fas fa-check-square" style="color: #00c100;"></i>';
+    }
+ };
 
     requestObj.open('post', form.action);
     requestObj.send(myData);
+
 
 } // fin fn formValidated
