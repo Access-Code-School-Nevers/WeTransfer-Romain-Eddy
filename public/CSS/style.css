@@ -9,7 +9,7 @@ a{
 li{
   list-style: none;
 }
-p{
+form p{
   margin-bottom: 0 !important;
 }
 /* body */
@@ -23,7 +23,7 @@ header{
   display: flex !important;
   justify-content: center;
 }
-h1{
+form h1{
   margin-top: 35px;
   color: white;
   text-shadow: 0px 0px 10px black;
@@ -37,7 +37,7 @@ h1{
     margin-top: 5%;
 }
 /* formulaire */
-form{
+form, #cgu{
   border: 1px solid #888888;
   border-radius: 3px;
   padding: 50px;
@@ -123,4 +123,24 @@ form h2{
 }
 .fa-check-square{
   margin-left: 15px;font-size: 1.2em;
+}
+
+/* CGU */
+#cgu{
+  display:block;
+}
+#cgu h2{
+  margin:50px 0 30px 0;
+}
+
+#cgu p{
+  text-align:justify;
+  margin:10px 0;
+}
+
+#cgu ul{
+  margin-left:35px;
+}
+#cgu li{
+  list-style-type: disc;
 }

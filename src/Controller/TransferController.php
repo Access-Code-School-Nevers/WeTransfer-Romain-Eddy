@@ -20,6 +20,19 @@ class TransferController extends AbstractController
     {
         return $this->render('site/index.html.twig', [
             'controller_name' => 'BlogController',
+            'page_title' => 'Transfert de fichiers gratuit en ligne'
+        ]);
+    }
+
+    /**
+     * @Route("/conditionsUtilisation", name="cgu")
+     */
+
+    public function cgu()
+    {
+        return $this->render('site/useConditions.html.twig', [
+            'controller_name' => 'BlogController',
+            'page_title' => 'Conditions d\'utilisation'
         ]);
     }
 
@@ -98,13 +111,13 @@ class TransferController extends AbstractController
           )
           ;
 
-          // $mailer->send($message);
+          $mailer->send($message);
 
 
           // Insert into DB
-          // $transferRepo = $this->getDoctrine()->getManager();
-          // $transferRepo->persist($fileTransfer);
-          // $transferRepo->flush();
+          $transferRepo = $this->getDoctrine()->getManager();
+          $transferRepo->persist($fileTransfer);
+          $transferRepo->flush();
 
           return new Response(1);
         }
