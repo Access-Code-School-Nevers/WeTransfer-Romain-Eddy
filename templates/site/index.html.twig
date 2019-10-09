@@ -4,7 +4,7 @@
 
 {% block body %}
 <section class="container">
-  <form id="form-transfer" method="POST" action="/sendData" enctype="multipart/form-data">
+  <form id="form-transfer" method="POST" action="/sendData" enctype="multipart/form-data" onsubmit="return false">
     <h2>Ajouter un fichier à Transférer</h2>
 
     <p class="champ">
@@ -28,9 +28,8 @@
     <div id="drop-zone" class="upload-zone-wait">Glisser/déposer</div>
     <div id="drop-show"></div>
     <input id="televerser" type="file" name="files[]" multiple>
-    <input  id="submit" class="button-submit" type="submit" name="submit" value="Envoyer">
-    <div class="message-transfer">
-
+  <input  id="submit" class="button-submit" type="submit" name="submit" value="Envoyer" onClick="formValidated()">
+    <div id="message-transfer">
     </div>
   </form>
 </section>

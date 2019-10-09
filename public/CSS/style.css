@@ -115,3 +115,11 @@ form h2{
 #televerser{
   margin-bottom: 20px;
 }
+#message-transfer{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+.fa-check-square{
+  margin-left: 15px;font-size: 1.2em;
+}

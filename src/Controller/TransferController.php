@@ -10,7 +10,7 @@ use ZipArchive;
 use App\Entity\FileTransfer;
 use Doctrine\ORM\EntityManagerInterface;
 
-class BlogController extends AbstractController
+class TransferController extends AbstractController
 {
     /**
      * @Route("/", name="home")
@@ -46,7 +46,7 @@ class BlogController extends AbstractController
 
         $fileTransfer->setFileName($idZip);
 
-        // // Add files to images reporitory and create zip archive
+        // Add files to images reporitory and create zip archive
         $zip = new ZipArchive;
         if ($zip->open('zip/'.$idZip.'.zip', ZipArchive::CREATE) === TRUE){
           $i=1;

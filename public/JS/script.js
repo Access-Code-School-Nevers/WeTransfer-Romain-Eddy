@@ -8,40 +8,6 @@ if(document.getElementById('form-transfer')){ // début test #main-form
     var droppedFiles;
     document.getElementById('submit').addEventListener("submit", formValidated);
 
-    function formValidated(e) {
-        e.preventDefault();
-
-        var myData = new FormData(form);
-        if(droppedFiles){
-            // console.log(droppedFiles);
-        }
-        for(var entryForm of myData.entries()){
-            // console.log(entryForm);
-        }
-
-        var normalFiles = document.getElementById('submit').files;
-        // console.log(normalFiles);
-
-        var requestObj = new XMLHttpRequest();
-
-        requestObj.open('post', form.action);
-        requestObj.send(myData);
-
-        // une fois la requéte fini cette function est éxécuté
-        function loadDoc() {
-
-            requestObj.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("").innerHTML =
-                    this.responseText;
-               }
-            };
-            requestObj.open("GET", "ajax_info.txt", true);
-            requestObj.send();
-        }
-
-    } // fin fn formValidated
-
 /* ------------------------- écoute des evts drag'n drop ----------------*/
 
 //evt enter
@@ -82,3 +48,28 @@ dropArea.ondrop = function(e){
 
 
 } //fin du test #main-form
+
+
+function formValidated() {
+    var myData = new FormData(form);
+    if(droppedFiles){
+        // console.log(droppedFiles);
+    }
+    for(var entryForm of myData.entries()){
+        // console.log(entryForm);
+    }
+
+    var normalFiles = document.getElementById('submit').files;
+    var requestObj = new XMLHttpRequest();
+
+    requestObj.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("message-transfer").innerHTML = '<p style="margin-top: 5px;">Transfert réussi!</p><i class="fas fa-check-square" style="color: #00c100;"></i>';
+    }
+ };
+
+    requestObj.open('post', form.action);
+    requestObj.send(myData);
+
+
+} // fin fn formValidated
