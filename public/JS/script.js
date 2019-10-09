@@ -6,7 +6,7 @@ if(document.getElementById('form-transfer')){ // début test #main-form
     var dropArea = document.getElementById('drop-zone');
     var dropShow = document.getElementById('drop-show');
     var droppedFiles;
-    document.getElementById('submit').addEventListener("click", formValidated);
+    document.getElementById('submit').addEventListener("submit", formValidated);
 
     function formValidated(e) {
         e.preventDefault();
@@ -63,13 +63,9 @@ dropArea.ondrop = function(e){
         droppedItem.className = 'mb-0';
         droppedItem.innerHTML = droppedFiles[i].name + ' (' + droppedFiles[i].size + ' Kb)';
         dropShow.appendChild(droppedItem);
-
-
     }
 
 } // fin ondrop
-
-
 
 
 
