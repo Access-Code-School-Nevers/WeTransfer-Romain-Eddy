@@ -58,7 +58,7 @@ function formValidated() {
         }
     }
     for(var entryForm of myData.entries()){
-        console.log(entryForm[0], entryForm[1]);
+        // console.log(entryForm[0], entryForm[1]);
     }
 
     var normalFiles = document.getElementById('televerser').files;
