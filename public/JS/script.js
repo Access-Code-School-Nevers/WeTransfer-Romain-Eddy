@@ -1,5 +1,8 @@
 "use strict";
 
+  var transferProgress = document.getElementById('overlay-transfert');
+
+
 if(document.getElementById('form-transfer')){ // début test #main-form
 
     var form = document.getElementById('form-transfer');
@@ -48,8 +51,9 @@ dropArea.ondrop = function(e){
 
 } //fin du test #main-form
 
-
 function formValidated() {
+
+    transferProgress.style.display = "flex";
     var myData = new FormData(form);
     if(droppedFiles){
         console.log(droppedFiles);
@@ -74,5 +78,9 @@ function formValidated() {
     requestObj.open('post', form.action);
     requestObj.send(myData);
 
-
+    transferProgress.classList.remove = "hidden";
 } // fin fn formValidated
+function leaveTransferProgress(){
+  transferProgress.classList.add = 'hidden';
+  transferProgress.style.display = "none";
+}
