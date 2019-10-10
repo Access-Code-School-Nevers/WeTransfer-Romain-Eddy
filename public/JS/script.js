@@ -92,7 +92,7 @@ function formValidated() {
       var tmp = JSON.parse(this.responseText); // Parse json to access variables
       console.log(tmp.link);
       dowloadInput.value = "http://localhost/WeTransfer-Romain-Eddy/public" + tmp.link;
-      dowloadButton.href = "http://localhost/WeTransfer-Romain-Eddy/public" + tmp.link;
+      dowloadButton.href = tmp.link;
       form.reset();
 
 

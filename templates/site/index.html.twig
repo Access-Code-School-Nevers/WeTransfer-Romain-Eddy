@@ -3,6 +3,12 @@
 {% block body %}
 <section class="container">
   <form id="form-transfer" method="POST" action="/sendData" enctype="multipart/form-data" onsubmit="return false">
+    <div id="translate-page">
+    <a href="#"><img src="\img\united-kingdom-flag-xs.png" alt="translate in english"></a>
+    <a href="#"><img src="\img\france-flag-icon-128.png" alt="translate in french"></a>
+    <a href="#"><img src="\img\italy-flag-xs.png" alt="translate in italian"></a>
+    <a href="#"><img src="\img\spain-flag-xs.png" alt="translate in spain"></a>
+    </div>
     <h2>Ajouter un fichier à Transférer</h2>
 
     <p class="champ">
@@ -44,7 +50,7 @@
     <div id="transfert-success">
       <h3>Transfert réussi !</h3>
       <i class="far fa-check-circle"></i>
-      <input id="lien-download" type="text" class="form-control input-monospace input-sm" data-autoselect="" value="https://???.com">
+      <input id="lien-download" type="text" class="form-control input-monospace input-sm" data-autoselect="" value="">
       <a id="link-download" href="">Dowload ZIP</a>
     </div>
     <div id="transfert-error">
