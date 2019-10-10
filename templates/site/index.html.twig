@@ -7,19 +7,19 @@
 
     <p class="champ">
       Nom du destinataire :<br>
-      <input type="text" name="name_from" placeholder=" Nom" required><br>
+      <input id="input-name-from" type="text" name="name_from" placeholder=" Nom" required><br>
     </p>
     <p class="champ">
       Adresse du destinataire :<br>
-      <input type="email" name="mail_from" placeholder=" E-mail" required><br>
+      <input id="input-email-from" type="email" name="mail_from" placeholder=" E-mail" required><br>
     </p>
     <p class="champ">
       Votre nom :<br>
-      <input type="text" name="name_to" placeholder=" Nom" required><br>
+      <input id="input-name-to" type="text" name="name_to" placeholder=" Nom" required><br>
     </p>
     <p class="champ">
       Votre adresse e-mail :<br>
-      <input type="email" name="mail_to" placeholder=" E-mail" required><br>
+      <input id="input-email-to" type="email" name="mail_to" placeholder=" E-mail" required><br>
     </p>
 
     <p style="font-weight: bold;color: #5a5a5a;">Téléverser un fichier:</p> <br>
@@ -35,9 +35,24 @@
 </section>
 <div id="overlay-transfert">
   <div id="transfert-in-progress">
-    <div class="leave-overlay"> <a href="#" onClick="leaveTransferProgress()"><i class="fas fa-times"></i></a> </div>
-    <h3>Transfert en cours...</h3>
-    <img src="img/loader.svg" class="loader" style="fill-opacity: 0;">
+    <div id="leave-overlay"> <a href="#" onClick="leaveTransferProgress()"><i class="fas fa-times"></i></a>
+    </div>
+    <div id="transfert-wait">
+      <h3>Transfert en cours...</h3>
+      <img src="img/loader.svg" class="loader" style="fill-opacity: 0;">
+    </div>
+    <div id="transfert-success">
+      <h3>Transfert réussi !</h3>
+      <i class="far fa-check-circle"></i>
+      <input id="lien-download" type="text" class="form-control input-monospace input-sm" data-autoselect="" value="https://???.com">
+      <a id="link-download" href="">Dowload ZIP</a>
+    </div>
+    <div id="transfert-error">
+      <i class="fas fa-exclamation-triangle"></i>
+      <h3>Erreur de transfert</h3>
+      <i class="fas fa-exclamation-triangle"></i>
+    </div>
+
   </div>
 </div>
 

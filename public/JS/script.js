@@ -53,8 +53,26 @@ dropArea.ondrop = function(e){
 } //fin du test #main-form
 
 function formValidated() {
-
     transferProgress.style.display = "flex";
+    let transferWait = document.getElementById("transfert-wait");
+    transferWait.style.display = "flex";
+    let transferSuccess = document.getElementById("transfert-success");
+    transferSuccess.style.display = "none";
+    let leaveButton = document.getElementById("leave-overlay");
+    leaveButton.style.display = "none";
+    let transferError = document.getElementById("transfert-error");
+    transferError.style.display = "none";
+    let overlayTransfer = document.getElementById("transfert-in-progress");
+    overlayTransfer.style.backgroundColor = "white";
+    overlayTransfer.style.height = "50%";
+    let dowloadInput = document.getElementById("lien-download");
+    let dowloadButton = document.getElementById("link-download");
+
+    let inputNameFrom = document.getElementById("input-name-from");
+    let inputEmailFrom = document.getElementById("input-email-from");
+    let inputNameTo = document.getElementById("input-name-to");
+    let inputEmailTo = document.getElementById("input-email-to");
+
     var myData = new FormData(form);
     if(droppedFiles){
         console.log(droppedFiles);
@@ -72,10 +90,32 @@ function formValidated() {
 
     requestObj.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("message-transfer").innerHTML = '<p style="margin-top: 5px;">Transfert réussi!</p><i class="fas fa-check-square" style="color: #00c100;"></i>';
-
+      transferSuccess.style.display = "flex";
+      transferWait.style.display = "none";
+      transferError.style.display = "none";
+      leaveButton.style.display = "block";
+      overlayTransfer.style.backgroundColor = "white";
+      overlayTransfer.style.height = "50%";
       var tmp = JSON.parse(this.responseText); // Parse json to access variables
       console.log(tmp.link);
+      dowloadInput.value = "http://localhost/WeTransfer-Romain-Eddy/public" + tmp.link;
+      dowloadButton.href = "http://localhost/WeTransfer-Romain-Eddy/public" + tmp.link;
+      inputNameFrom.value = "";
+      inputEmailFrom.value = "";
+      inputNameTo.value = "";
+      inputEmailTo.value = "";
+      // normalFiles.value = "";
+
+
+
+
+    } else if (this.readyState == 4 && this.status == 500) {
+      transferSuccess.style.display = "none";
+      transferWait.style.display = "none";
+      transferError.style.display = "flex";
+      leaveButton.style.display = "block";
+      overlayTransfer.style.height = "27%";
+      overlayTransfer.style.backgroundColor = "#ff4b4b";
     }
  };
 
