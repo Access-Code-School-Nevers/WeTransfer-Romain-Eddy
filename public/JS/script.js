@@ -98,7 +98,7 @@ function formValidated() {
       overlayTransfer.style.height = "50%";
       var tmp = JSON.parse(this.responseText); // Parse json to access variables
       console.log(tmp.link);
-      dowloadInput.value = "http://localhost/WeTransfer-Romain-Eddy/public" + tmp.link;
+      dowloadInput.value = tmp.link;
       dowloadButton.href = "http://localhost/WeTransfer-Romain-Eddy/public" + tmp.link;
       inputNameFrom.value = "";
       inputEmailFrom.value = "";

@@ -3,34 +3,34 @@
 {% block body %}
 <section class="container">
   <form id="form-transfer" method="POST" action="/sendData" enctype="multipart/form-data" onsubmit="return false">
-    <h2>Ajouter un fichier à Transférer</h2>
+    <h2>{{ tabLang.title_form }}</h2>
 
     <p class="champ">
-      Nom du destinataire :<br>
-      <input id="input-name-from" type="text" name="name_from" placeholder=" Nom" required><br>
+      {{ tabLang.name_from }}<br>
+      <input id="input-name-from" type="text" name="name_from" placeholder=" {{ tabLang.placeholder_name }}" required><br>
     </p>
     <p class="champ">
-      Adresse du destinataire :<br>
-      <input id="input-email-from" type="email" name="mail_from" placeholder=" E-mail" required><br>
+      {{ tabLang.mail_from }}<br>
+      <input id="input-email-from" type="email" name="mail_from" placeholder="{{ tabLang.placeholder_mail }}" required><br>
     </p>
     <p class="champ">
-      Votre nom :<br>
-      <input id="input-name-to" type="text" name="name_to" placeholder=" Nom" required><br>
+      {{ tabLang.name_to }}<br>
+      <input id="input-name-to" type="text" name="name_to" placeholder=" {{ tabLang.placeholder_name }}" required><br>
     </p>
     <p class="champ">
-      Votre adresse e-mail :<br>
-      <input id="input-email-to" type="email" name="mail_to" placeholder=" E-mail" required><br>
+      {{ tabLang.mail_to }}<br>
+      <input id="input-email-to" type="email" name="mail_to" placeholder="{{ tabLang.placeholder_mail }}" required><br>
     </p>
 
-    <p style="font-weight: bold;color: #5a5a5a;">Téléverser un fichier:</p> <br>
-    <div id="drop-zone" class="upload-zone-wait">Glisser/déposer</div>
+    <p style="font-weight: bold;color: #5a5a5a;">{{ tabLang.title_load_file }}</p> <br>
+    <div id="drop-zone" class="upload-zone-wait">{{ tabLang.text_drag_and_drop }}</div>
     <div id="drop-show"></div>
     <input id="televerser" type="file" name="files[]" multiple>
-    <input  id="submit" class="button-submit" type="submit" name="submit" value="Envoyer">
+    <input  id="submit" class="button-submit" type="submit" name="submit" value="{{ tabLang.button_send }}">
     <div id="message-transfer">
     </div>
 
-    <a href="/conditionsUtilisation" id="linkCgu">Conditions d'utilisation</a>
+    <a href="/conditionsUtilisation" id="linkCgu">{{ tabLang.cgu_text }}</a>
   </form>
 </section>
 <div id="overlay-transfert">
@@ -38,21 +38,20 @@
     <div id="leave-overlay"> <a href="#" onClick="leaveTransferProgress()"><i class="fas fa-times"></i></a>
     </div>
     <div id="transfert-wait">
-      <h3>Transfert en cours...</h3>
+      <h3>{{ tabLang.file_transfer }}</h3>
       <img src="img/loader.svg" class="loader" style="fill-opacity: 0;">
     </div>
     <div id="transfert-success">
-      <h3>Transfert réussi !</h3>
+      <h3>{{ tabLang.transfer_succeed }}</h3>
       <i class="far fa-check-circle"></i>
       <input id="lien-download" type="text" class="form-control input-monospace input-sm" data-autoselect="" value="https://???.com">
-      <a id="link-download" href="">Dowload ZIP</a>
+      <a id="link-download" href="">{{ tabLang.zip_download }}</a>
     </div>
     <div id="transfert-error">
       <i class="fas fa-exclamation-triangle"></i>
-      <h3>Erreur de transfert</h3>
+      <h3>{{ tabLang.transfer_error }}</h3>
       <i class="fas fa-exclamation-triangle"></i>
     </div>
-
   </div>
 </div>
 
