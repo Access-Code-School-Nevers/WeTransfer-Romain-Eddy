@@ -60,6 +60,19 @@ function formValidated() {
     transferSuccess.style.display = "none";
     let leaveButton = document.getElementById("leave-overlay");
     leaveButton.style.display = "none";
+    let transferError = document.getElementById("transfert-error");
+    transferError.style.display = "none";
+    let overlayTransfer = document.getElementById("transfert-in-progress");
+    overlayTransfer.style.backgroundColor = "white";
+    overlayTransfer.style.height = "50%";
+    let dowloadInput = document.getElementById("lien-download");
+    let dowloadButton = document.getElementById("link-download");
+
+    let inputNameFrom = document.getElementById("input-name-from");
+    let inputEmailFrom = document.getElementById("input-email-from");
+    let inputNameTo = document.getElementById("input-name-to");
+    let inputEmailTo = document.getElementById("input-email-to");
+
     var myData = new FormData(form);
     if(droppedFiles){
         console.log(droppedFiles);
@@ -77,16 +90,32 @@ function formValidated() {
 
     requestObj.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-<<<<<<< HEAD
       transferSuccess.style.display = "flex";
       transferWait.style.display = "none";
+      transferError.style.display = "none";
       leaveButton.style.display = "block";
-=======
-      document.getElementById("message-transfer").innerHTML = '<p style="margin-top: 5px;">Transfert réussi!</p><i class="fas fa-check-square" style="color: #00c100;"></i>';
-
+      overlayTransfer.style.backgroundColor = "white";
+      overlayTransfer.style.height = "50%";
       var tmp = JSON.parse(this.responseText); // Parse json to access variables
       console.log(tmp.link);
->>>>>>> 8c82709b9f3c9ab245596177ebf4a1c5a43c1fb7
+      dowloadInput.value = "http://localhost/WeTransfer-Romain-Eddy/public" + tmp.link;
+      dowloadButton.href = "http://localhost/WeTransfer-Romain-Eddy/public" + tmp.link;
+      inputNameFrom.value = "";
+      inputEmailFrom.value = "";
+      inputNameTo.value = "";
+      inputEmailTo.value = "";
+      // normalFiles.value = "";
+
+
+
+
+    } else if (this.readyState == 4 && this.status == 500) {
+      transferSuccess.style.display = "none";
+      transferWait.style.display = "none";
+      transferError.style.display = "flex";
+      leaveButton.style.display = "block";
+      overlayTransfer.style.height = "27%";
+      overlayTransfer.style.backgroundColor = "#ff4b4b";
     }
  };
 
