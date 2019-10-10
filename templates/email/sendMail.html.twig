@@ -1,8 +1,22 @@
-<p>Bonjour {{ nomDestinataire }},</p>
+<section style="background-color:#f3f6f0;width:50%;margin-left:25%;border:solid 1px black;font-family:'Andale Mono'">
+  <div style="text-align:center;padding:20px">
+    <img src="logo.png" />
+  </div>
 
-<p>{{ nomAuteur }} souhaite partager du contenu avec vous. Vous pouvez télécharger le(s) fichier(s) sur la plateforme de stockage gratuite EasyTransfer à l'adresse suivante :</p>
+  <div style="font-size:1.2rem;padding:20px;text-align:justify">
+    <p>Bonjour {{ nomDestinataire|capitalize }},</p>
 
-<p><a href="{{ absolute_url(link) }}">{{ absolute_url(link) }}</a></p>
+    <p style="margin-top:60px">{{ nomAuteur|capitalize }} souhaite partager du contenu avec vous. Vous pouvez télécharger le(s) fichier(s) sur la plateforme de stockage gratuite EasyTransfer à l'adresse suivante :</p>
 
-<p>EasyTransfer vous permet d'envoyer des fichiers à vos amis, sans limite de poids. Les fichiers restent disponibles 48 heures après leur mise en
- ligne.</p>
+    <p style="margin:60px auto;text-align:center">
+      <a href="{{ absolute_url(link) }}">
+        <button style="font-size:1.2rem;padding:15px;border-radius: 5px;border: 1px solid #adadad;background-color:#00baec;color: white;font-weight: bold;cursor: pointer;">Accéder au téléchargement</button>
+      </a>
+    </p>
+
+    <p>Ces fichiers sont stockés au format ZIP, et resteront disponibles pendant 48 heures au téléchargement. Les fichiers sont téléchargeables de façon illimitée pendant cette période, et ce sans aucun coût.</p>
+
+    <p style="margin-top:60px;font-size:0.8rem">EasyTransfer vous permet d'envoyer des fichiers à vos amis, sans limite de poids. Les fichiers restent disponibles 48 heures après leur mise en ligne.</p>
+     <p style="margin-top:30px;font-size:0.8rem;text-align:center">© 2019 EasyTransfer</p>
+   </div>
+</section>
