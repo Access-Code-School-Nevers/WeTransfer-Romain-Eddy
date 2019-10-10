@@ -77,9 +77,16 @@ function formValidated() {
 
     requestObj.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
+<<<<<<< HEAD
       transferSuccess.style.display = "flex";
       transferWait.style.display = "none";
       leaveButton.style.display = "block";
+=======
+      document.getElementById("message-transfer").innerHTML = '<p style="margin-top: 5px;">Transfert réussi!</p><i class="fas fa-check-square" style="color: #00c100;"></i>';
+
+      var tmp = JSON.parse(this.responseText); // Parse json to access variables
+      console.log(tmp.link);
+>>>>>>> 8c82709b9f3c9ab245596177ebf4a1c5a43c1fb7
     }
  };
 

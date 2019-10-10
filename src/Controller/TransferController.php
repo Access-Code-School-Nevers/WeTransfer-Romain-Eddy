@@ -119,11 +119,11 @@ class TransferController extends AbstractController
           $transferRepo->persist($fileTransfer);
           $transferRepo->flush();
 
-          return new Response(1);
+          return $this->json(['response' => '1', 'link' => '/zip/'.$idZip.'.zip']);
         }
         // Error
         else {
-          return new Response(0);
+          return $this->json(['response' => '0']);
         }
     }
 }
