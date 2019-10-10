@@ -87,7 +87,7 @@ function formValidated() {
       transferWait.style.display = "none";
       transferError.style.display = "none";
       leaveButton.style.display = "block";
-      overlayTransfer.style.backgroundColor = "white";
+      overlayTransfer.style.backgroundColor = "#f3ffa7";
       overlayTransfer.style.height = "50%";
       var tmp = JSON.parse(this.responseText); // Parse json to access variables
       console.log(tmp.link);
