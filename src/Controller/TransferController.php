@@ -19,7 +19,7 @@ class TransferController extends AbstractController
     public function index()
     {
         return $this->render('site/index.html.twig', [
-            'controller_name' => 'BlogController',
+            'controller_name' => 'TransferController',
             'page_title' => 'Transfert de fichiers gratuit en ligne'
         ]);
     }
@@ -31,7 +31,7 @@ class TransferController extends AbstractController
     public function cgu()
     {
         return $this->render('site/useConditions.html.twig', [
-            'controller_name' => 'BlogController',
+            'controller_name' => 'TransferController',
             'page_title' => 'Conditions d\'utilisation'
         ]);
     }

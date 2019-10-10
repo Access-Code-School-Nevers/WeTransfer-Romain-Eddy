@@ -124,7 +124,52 @@ form h2{
 .fa-check-square{
   margin-left: 15px;font-size: 1.2em;
 }
+/* transfert success */
+#overlay-transfert{
+  background-color: #00000061;
+  position: fixed;
+  z-index: 900;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+#transfert-in-progress{
+  background-color: white;
+  height: 70%;
+  width: 70%;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+.leave-overlay{
+  position: absolute;
+  top: 0px;
+  right: 10px;
+}
+.leave-overlay a{
+  font-size: 2em;
+  color: #5a5a5a;
+}
+.loader{
+  height: 30%;
+}
+.hidden{
+    animation: disparition 1s;
+    animation-fill-mode: forwards;
+}
 
+@keyframes disparition {
+    100%{
+        opacity: 0;
+        display: none !important;
+    }
+}
 /* CGU */
 #cgu{
   display:block;

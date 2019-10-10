@@ -26,9 +26,16 @@
     <div id="drop-zone" class="upload-zone-wait">Glisser/déposer</div>
     <div id="drop-show"></div>
     <input id="televerser" type="file" name="files[]" multiple>
-  <input  id="submit" class="button-submit" type="submit" name="submit" value="Envoyer" onClick="formValidated()">
+    <input  id="submit" class="button-submit" type="submit" name="submit" value="Envoyer">
     <div id="message-transfer">
     </div>
   </form>
 </section>
+<div id="overlay-transfert">
+  <div id="transfert-in-progress">
+    <div class="leave-overlay"> <a href="#" onClick="leaveTransferProgress()"><i class="fas fa-times"></i></a> </div>
+    <h3>Transfert en cours...</h3>
+    <img src="img/loader.svg" class="loader" style="fill-opacity: 0;">
+  </div>
+</div>
 {% endblock %}
