@@ -236,3 +236,10 @@ form h2{
 #cgu li{
   list-style-type: disc;
 }
+
+#linkCgu{
+  font-size:0.6rem;
+  margin-top:10px;
+  color:grey;
+  font-weight:bold;
+}

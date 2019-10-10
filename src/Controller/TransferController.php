@@ -24,6 +24,7 @@ class TransferController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/conditionsUtilisation", name="cgu")
      */
@@ -33,19 +34,6 @@ class TransferController extends AbstractController
         return $this->render('site/useConditions.html.twig', [
             'controller_name' => 'TransferController',
             'page_title' => 'Conditions d\'utilisation'
-        ]);
-    }
-
-    /**
-     * @Route("/mail", name="mail")
-     */
-
-    public function mail()
-    {
-        return $this->render('email/sendMail.html.twig', [
-            'nomDestinataire' => 'nomDestinataire',
-            'nomAuteur' => 'nomAuteur',
-            'link' => 'zip/nomFichier.zip'
         ]);
     }
 
@@ -101,15 +89,17 @@ class TransferController extends AbstractController
           ->setSubject('EasyTransfer - Fichiers envoyés par ' . $fileTransfer->getNameFrom())
           ->setFrom([$fileTransfer->getMailFrom()])
           ->setTo([$fileTransfer->getMailTo()])
+          // $cid = $message->embed(\Swift_Image::fromPath('img/logo.png'));
+          // ->attach(\Swift_Attachment::fromPath('img/logo.png')
+          //   ->setFilename('logo.png'))
           ->setBody(
-              $this->renderView('email/sendMail.html.twig', [
-                  'nomDestinataire' => $fileTransfer->getNameTo(),
-                  'nomAuteur' => $fileTransfer->getNameFrom(),
-                  'link' => 'zip/'.$fileTransfer->getFileName().'.zip'
-              ]),
-              'text/html'
-          )
-          ;
+            $this->renderView('email/sendMail.html.twig', [
+                'nomDestinataire' => $fileTransfer->getNameTo(),
+                'nomAuteur' => $fileTransfer->getNameFrom(),
+                'link' => 'zip/'.$fileTransfer->getFileName().'.zip'
+            ]),
+            'text/html'
+          );
 
           $mailer->send($message);
 
