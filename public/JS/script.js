@@ -9,7 +9,8 @@ if(document.getElementById('form-transfer')){ // début test #main-form
     var dropArea = document.getElementById('drop-zone');
     var dropShow = document.getElementById('drop-show');
     var droppedFiles;
-    document.getElementById('submit').addEventListener("submit", formValidated);
+    var sendButton = document.getElementById("form-transfer");
+    sendButton.addEventListener("submit", formValidated);
 
 /* ------------------------- écoute des evts drag'n drop ----------------*/
 //evt enter
