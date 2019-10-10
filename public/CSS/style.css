@@ -49,6 +49,7 @@ form, #cgu{
   box-shadow: 0px 0px 15px #000000;
   background-color: #fffffff0;
   position: relative;
+  width: 600px;
 }
 .logo-form img{
   height: 130px;
