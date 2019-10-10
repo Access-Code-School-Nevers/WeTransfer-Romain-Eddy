@@ -14,9 +14,19 @@ form p{
 }
 /* body */
 body{
+  background-color: black !important;
+}
+body:before{
+  content: "";
   background: url("../img/img_5d9c9ef205b4d.jpg");
-  background-size: cover;
   background-attachment: fixed;
+  background-size: cover;
+  z-index: -1;
+  height: 100%;
+  top: 0;
+  width: 100%;
+  position: absolute;
+  filter: blur(0px);
 }
 /* header */
 header{
