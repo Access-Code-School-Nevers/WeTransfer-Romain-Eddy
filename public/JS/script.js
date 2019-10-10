@@ -90,13 +90,10 @@ function formValidated() {
       overlayTransfer.style.backgroundColor = "#f3ffa7";
       overlayTransfer.style.height = "50%";
       var tmp = JSON.parse(this.responseText); // Parse json to access variables
-      console.log(tmp.link);
+
       dowloadInput.value = "http://localhost/WeTransfer-Romain-Eddy/public" + tmp.link;
       dowloadButton.href = tmp.link;
       form.reset();
-
-
-
 
     } else if (this.readyState == 4 && this.status == 500) {
       transferSuccess.style.display = "none";

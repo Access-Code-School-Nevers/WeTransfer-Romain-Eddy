@@ -12,16 +12,27 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class TransferController extends AbstractController
 {
+  /**
+   * @Route("/", name="homeNL")
+   */
+
+  public function homeNL(Request $request)
+  {
+    return $this->redirect('/'.$request->getLocale(), 301);
+  }
+
     /**
-     * @Route("/", name="home")
+     * @Route("/{_locale}", name="home",  requirements={ "_locale" = "en|fr|es|it" })
      */
 
-    public function index()
+    public function index(Request $request)
     {
-        return $this->render('site/index.html.twig', [
-            'controller_name' => 'TransferController',
-            'page_title' => 'Transfert de fichiers gratuit en ligne'
-        ]);
+      include('language/'.$request->getLocale().'/home.php');
+
+      return $this->render('site/index.html.twig', [
+          'controller_name' => 'TransferController',
+          'tabLang' => $tabLang
+      ]);
     }
 
 
