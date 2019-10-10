@@ -1,11 +1,9 @@
 "use strict";
 
-  var transferProgress = document.getElementById('overlay-transfert');
-
+var transferProgress = document.getElementById('overlay-transfert');
+var form = document.getElementById('form-transfer');
 
 if(document.getElementById('form-transfer')){ // début test #main-form
-
-    var form = document.getElementById('form-transfer');
     var dropArea = document.getElementById('drop-zone');
     var dropShow = document.getElementById('drop-show');
     var droppedFiles;
@@ -68,11 +66,6 @@ function formValidated() {
     let dowloadInput = document.getElementById("lien-download");
     let dowloadButton = document.getElementById("link-download");
 
-    let inputNameFrom = document.getElementById("input-name-from");
-    let inputEmailFrom = document.getElementById("input-email-from");
-    let inputNameTo = document.getElementById("input-name-to");
-    let inputEmailTo = document.getElementById("input-email-to");
-
     var myData = new FormData(form);
     if(droppedFiles){
         console.log(droppedFiles);
@@ -100,11 +93,7 @@ function formValidated() {
       console.log(tmp.link);
       dowloadInput.value = "http://localhost/WeTransfer-Romain-Eddy/public" + tmp.link;
       dowloadButton.href = "http://localhost/WeTransfer-Romain-Eddy/public" + tmp.link;
-      inputNameFrom.value = "";
-      inputEmailFrom.value = "";
-      inputNameTo.value = "";
-      inputEmailTo.value = "";
-      // normalFiles.value = "";
+      form.reset();
 
 
 
