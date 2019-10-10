@@ -53,8 +53,13 @@ dropArea.ondrop = function(e){
 } //fin du test #main-form
 
 function formValidated() {
-
     transferProgress.style.display = "flex";
+    let transferWait = document.getElementById("transfert-wait");
+    transferWait.style.display = "flex";
+    let transferSuccess = document.getElementById("transfert-success");
+    transferSuccess.style.display = "none";
+    let leaveButton = document.getElementById("leave-overlay");
+    leaveButton.style.display = "none";
     var myData = new FormData(form);
     if(droppedFiles){
         console.log(droppedFiles);
@@ -72,7 +77,9 @@ function formValidated() {
 
     requestObj.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("message-transfer").innerHTML = '<p style="margin-top: 5px;">Transfert réussi!</p><i class="fas fa-check-square" style="color: #00c100;"></i>';
+      transferSuccess.style.display = "flex";
+      transferWait.style.display = "none";
+      leaveButton.style.display = "block";
     }
  };
 

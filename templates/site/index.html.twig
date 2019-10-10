@@ -33,9 +33,17 @@
 </section>
 <div id="overlay-transfert">
   <div id="transfert-in-progress">
-    <div class="leave-overlay"> <a href="#" onClick="leaveTransferProgress()"><i class="fas fa-times"></i></a> </div>
-    <h3>Transfert en cours...</h3>
-    <img src="img/loader.svg" class="loader" style="fill-opacity: 0;">
+    <div id="leave-overlay"> <a href="#" onClick="leaveTransferProgress()"><i class="fas fa-times"></i></a>
+    </div>
+    <div id="transfert-wait">
+      <h3>Transfert en cours...</h3>
+      <img src="img/loader.svg" class="loader" style="fill-opacity: 0;">
+    </div>
+    <div id="transfert-success">
+      <h3>Transfert réussi !</h3>
+      <i class="far fa-check-circle"></i>
+    </div>
+
   </div>
 </div>
 {% endblock %}
