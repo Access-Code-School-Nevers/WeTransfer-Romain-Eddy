@@ -99,15 +99,15 @@ class TransferController extends AbstractController
         $message = (new \Swift_Message())
           ->setSubject('EasyTransfer - Fichiers envoyés par ' . $fileTransfer->getNameFrom())
           ->setFrom([$fileTransfer->getMailFrom()])
-          ->setTo([$fileTransfer->getMailTo()])
-          // $cid = $message->embed(\Swift_Image::fromPath('img/logo.png'));
-          // ->attach(\Swift_Attachment::fromPath('img/logo.png')
-          //   ->setFilename('logo.png'))
-          ->setBody(
+          ->setTo([$fileTransfer->getMailTo()]);
+
+          $cid = $message->embed(\Swift_Image::fromPath('img/logo.png'));
+          $message->setBody(
             $this->renderView('email/sendMail.html.twig', [
                 'nomDestinataire' => $fileTransfer->getNameTo(),
                 'nomAuteur' => $fileTransfer->getNameFrom(),
-                'link' => 'zip/'.$fileTransfer->getFileName().'.zip'
+                'link' => 'zip/'.$fileTransfer->getFileName().'.zip',
+                'imgLogo' => $cid
             ]),
             'text/html'
           );
