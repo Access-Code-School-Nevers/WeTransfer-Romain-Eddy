@@ -53,15 +53,14 @@ class TransferController extends AbstractController
      */
     public function sendData(Request $request, \Swift_Mailer $mailer)
     {
-      // Create entity
-      $fileTransfer = new FileTransfer();
-      $fileTransfer->setMailFrom(filter_var(trim($request->request->get('mail_from')), FILTER_SANITIZE_EMAIL));
-      $fileTransfer->setNameFrom($request->request->get('name_from'));
-      $fileTransfer->setMailTo(filter_var(trim($request->request->get('mail_to')), FILTER_SANITIZE_EMAIL));
-      $fileTransfer->setNameTo($request->request->get('name_to'));
+      if($this->checkEmail($request->request->get('mail_from')) && $this->checkEmail($request->request->get('mail_to'))){
+        // Create entity
+        $fileTransfer = new FileTransfer();
+        $fileTransfer->setMailFrom(filter_var(trim($request->request->get('mail_from')), FILTER_SANITIZE_EMAIL));
+        $fileTransfer->setNameFrom($request->request->get('name_from'));
+        $fileTransfer->setMailTo(filter_var(trim($request->request->get('mail_to')), FILTER_SANITIZE_EMAIL));
+        $fileTransfer->setNameTo($request->request->get('name_to'));
 
-
-      if($fileTransfer->getMailFrom() != false && $fileTransfer->getMailTo() != false){
         $files = $request->files->get('files');
         $nbElements = count($files);
         $tmpFiles = array();
@@ -127,4 +126,10 @@ class TransferController extends AbstractController
           return $this->json(['response' => '0']);
         }
     }
+
+  public function checkEmail($email) {
+   $find1 = strpos($email, '@');
+   $find2 = strpos($email, '.');
+   return ($find1 !== false && $find2 !== false);
+  }
 }
