@@ -15,5 +15,9 @@ $tabLang = array(
   'file_transfer' => 'Transfert en cours...',
   'transfer_succeed' => 'Transfert réussi !',
   'zip_download' => 'Télécharger le ZIP',
-  'transfer_error' => 'Erreur de transfert'
+  'transfer_error' => 'Erreur de transfert',
+  'translation_fr' => 'Traduire en français',
+  'translation_en' => 'Traduire en anglais',
+  'translation_es' => 'Traduire en espagnol',
+  'translation_it' => 'Traduire en italien'
 );
