@@ -15,19 +15,22 @@ form p{
 /* body */
 body{
   background-color: black !important;
+  position: absolute;
+  width: 100vw;
 }
-body:before{
+/* body:before{
   content: "";
-  background: url("../img/img_5d9c9ef205b4d.jpg");
+  background-color: white;
   background-attachment: fixed;
   background-size: cover;
-  z-index: -1;
+  z-index: 999;
   height: 100%;
   top: 0;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   position: absolute;
   filter: blur(0px);
-}
+} */
 /* header */
 header{
   display: flex !important;

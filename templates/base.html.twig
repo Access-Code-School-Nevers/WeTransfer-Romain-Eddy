@@ -9,11 +9,29 @@
 
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        {% block body %}
+        {% endblock %}
+        {% block javascripts %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/6fee70888d.js"></script>
-        <script src="JS/script.js" charset="utf-8"></script>{% endblock %}
+        <script src="JS/script.js" charset="utf-8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.min.js"></script>
+        <script src="https://www.vantajs.com/dist/vanta.waves.min.js"></script>
+        <!-- <script src="three.r92.min.js"></script>
+        <script src="vanta.waves.min.js"></script> -->
+        <script>
+        VANTA.WAVES({
+          el: "#vantajs",
+          color: 0xaa8200,
+          shininess: 109.00,
+          waveHeight: 40.00,
+          waveSpeed: 0.95,
+          zoom: 1.05
+        })
+      </script>
+
+      {% endblock %}
     </body>
 </html>
