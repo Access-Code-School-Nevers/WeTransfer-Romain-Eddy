@@ -91,7 +91,7 @@ function formValidated() {
       overlayTransfer.style.height = "50%";
       var tmp = JSON.parse(this.responseText); // Parse json to access variables
 
-      dowloadInput.value = "http://localhost/WeTransfer-Romain-Eddy/public" + tmp.link;
+      dowloadInput.value = "https://easytransfer.promo-29.codeur.online" + tmp.link;
       dowloadButton.href = tmp.link;
       form.reset();
 
